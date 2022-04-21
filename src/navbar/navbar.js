@@ -49,6 +49,9 @@ function Navbar({ isHome }) {
 	const handleChange = () => {
 		navigate("/discover");
 	};
+	const handleEns = () => {
+		navigate("/ens");
+	};
 	return (
 		<nav id="nav">
 			<div id="nav-links">Artsy</div>
@@ -71,6 +74,12 @@ function Navbar({ isHome }) {
 					style={{ color: "white", fontSize: "30px" }}
 					onClick={handleChange}>
 					Discover
+				</Button>
+				<Button
+					variant="none"
+					style={{ color: "white", fontSize: "30px" }}
+					onClick={handleEns}>
+					ENS
 				</Button>
 			</div>
 

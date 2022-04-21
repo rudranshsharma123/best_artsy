@@ -9,6 +9,7 @@ import User from "./veiws/user/user";
 import store from "./redux/store";
 import { Provider } from "react-redux";
 import ArtGen from "./veiws/generate/artGen";
+import App from "./veiws/EnsMint/App";
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -18,6 +19,7 @@ ReactDOM.render(
 				<Route path="/discover" element={<Discover />} />
 				<Route path="/user" element={<User />} />
 				<Route path="/gen" element={<ArtGen />} />
+				<Route path="/ens" element={<App />} />
 			</Routes>
 		</BrowserRouter>
 	</Provider>,
