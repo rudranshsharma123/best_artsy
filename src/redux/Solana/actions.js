@@ -31,12 +31,10 @@ export const connectToSolana = () => {
 		const { solana } = window;
 		if (solana && solana.isPhantom) {
 			console.log("Phanton is found and everything is a ok");
-			const res = await solana.connect({ onlyIfTrusted: true });
-			console.log("Conected with Public Key", res.publicKey.toString());
-			dispatch(connectionSuccess({ key: res.publicKey.toString(), solana }));
+			// const res1 = await solana.request({ method: "connect" });
+			const res1 = await solana.connect();
+			console.log("Conected with Public Key", res1.publicKey.toString());
+			dispatch(connectionSuccess({ key: res1.publicKey.toString(), solana }));
 		}
-		// window.solana.on("accountsChanged", (accounts) => {
-		// 	dispatch(updateAccount(accounts[0]));
-		// });
 	};
 };
