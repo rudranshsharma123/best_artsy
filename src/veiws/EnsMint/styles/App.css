@@ -83,7 +83,7 @@ header{
   display: flex;
   flex-direction: column;
   margin: auto;
-  max-width: 550px;
+  max-width: 200px;
 }
 
 .connect-wallet-container img {
@@ -162,7 +162,8 @@ header{
 
 .form-container{
   /* display: flex; */
-  width: 100%;
+  margin-left: 500px;
+  width: 50%;
   flex-direction: column;
   justify-content: center;
   align-items: center;

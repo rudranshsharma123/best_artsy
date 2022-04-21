@@ -6,9 +6,7 @@ import { ToastContainer } from "react-toastify";
 import { toastySuccess } from "../../consts/toasts";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
 import { connectToSolana } from "../../redux/Solana/actions";
 import Deso from "deso-protocol";
 
@@ -104,7 +102,7 @@ function Login(props) {
 				{publicKey && (
 					<div>
 						Hello, you are logged in{" "}
-						<Button onClick={handlePageChange}>click me</Button> to procceed{" "}
+						<button onClick={handlePageChange}>click me</button> to procceed{" "}
 						<div style={{ margin: "10px", padding: "10px" }}>
 							This is your DeSo publicKey <span id="text">{publicKey} </span>
 							<br></br>

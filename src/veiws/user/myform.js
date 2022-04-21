@@ -1,5 +1,4 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
@@ -13,7 +12,7 @@ function Myform(props) {
 	const [link, setLink] = useState("");
 	const [body, setBody] = useState("");
 	const [sellPrice, setSellPrice] = useState(0);
-	const [isForSale, setIsForSale] = useState(true);
+	const [isForSale, setIsForSale] = useState("");
 	const [amountToBeSold, setAmountToBeSold] = useState(0);
 	const [publicKey, setPublic] = useState("");
 	const [PostHashHex, setPostHashHex] = useState("");
@@ -117,86 +116,66 @@ function Myform(props) {
 		console.log(isForSale);
 	};
 	return (
-		<Form>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Link To Your NFT's Image</Form.Label>
-				<Form.Control
-					type="email"
-					placeholder="Enter link to you NFT's image"
-					value={link}
-					onChange={(e) => {
-						onChangeTextFeild(e, "link");
-						console.log(link);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should have a link to your NFT's image.
-				</Form.Text>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Enter price at which you want to sell your NFTs</Form.Label>
-				<Form.Control
-					type="number"
-					placeholder="Enter selling price for your NFTs"
-					value={sellPrice}
-					onChange={(e) => {
-						onChangeTextFeild(e, "sellPrice");
-						console.log(sellPrice);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should set a price for your NFTs
-				</Form.Text>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Enter The Body of you Nfts</Form.Label>
-				<Form.Control
-					type="email"
-					placeholder="Enter body of your NFT's"
-					value={body}
-					onChange={(e) => {
-						onChangeTextFeild(e, "body");
-						console.log(body);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should provide a textual desciption for the NFT's metadata
-				</Form.Text>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Text>Is your NFT for Sale?</Form.Text>
-				<Form.Switch onChange={switchI} checked={isForSale}></Form.Switch>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Enter number of NFTs you want to sell</Form.Label>
-				<Form.Control
-					type="number"
-					placeholder="Enter the number of NFTs you want to sell"
-					value={amountToBeSold}
-					onChange={(e) => {
-						onChangeTextFeild(e, "number");
-						console.log(amountToBeSold);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should set the number of NFTs you want default is 2
-				</Form.Text>
-			</Form.Group>
-			<Button
-				variant="primary"
-				onClick={async (e) => {
-					e.preventDefault();
-					toastySuccess("Your NFTs are being created");
-					await createPostForNft();
-					await makePostNft();
-					toastySuccess("NFTs are now for sale");
-					setBody("");
-					setAmountToBeSold("");
-					setLink("");
-					setSellPrice("");
-				}}>
-				Submit
-			</Button>{" "}
+		<div>
+			<input
+				type="text"
+				placeholder="Enter the link for your NFT"
+				value={link}
+				onChange={(e) => {
+					onChangeTextFeild(e, "link");
+				}}
+			/>
+			<input
+				type="number"
+				placeholder="Enter the price for your NFT"
+				value={sellPrice}
+				onChange={(e) => {
+					onChangeTextFeild(e, "sellPrice");
+				}}
+			/>
+
+			<input
+				type="text"
+				placeholder="Enter the body for your NFT"
+				value={body}
+				onChange={(e) => {
+					onChangeTextFeild(e, "body");
+				}}
+			/>
+			<input
+				type="text"
+				placeholder="Is your NFT for sale?"
+				value={isForSale}
+				onChange={(e) => {
+					onChangeTextFeild(e, "isForSale");
+				}}
+			/>
+			<input
+				type="text"
+				placeholder="How many NFT would you want to sell?"
+				value={amountToBeSold}
+				onChange={(e) => {
+					onChangeTextFeild(e, "number");
+				}}
+			/>
+
+			<div>
+				<button
+					className="cta-button mint-button"
+					onClick={async (e) => {
+						e.preventDefault();
+						toastySuccess("Your NFTs are being created");
+						await createPostForNft();
+						await makePostNft();
+						toastySuccess("NFTs are now for sale");
+						setBody("");
+						setAmountToBeSold("");
+						setLink("");
+						setSellPrice("");
+					}}>
+					Submit your profile on chain!
+				</button>
+			</div>
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}
@@ -208,7 +187,23 @@ function Myform(props) {
 				draggable
 				pauseOnHover
 			/>
-		</Form>
+		</div>
+
+		// <Button
+		// 	variant="primary"
+		// 	onClick={async (e) => {
+		// 		e.preventDefault();
+		// 		toastySuccess("Your NFTs are being created");
+		// 		await createPostForNft();
+		// 		await makePostNft();
+		// 		toastySuccess("NFTs are now for sale");
+		// 		setBody("");
+		// 		setAmountToBeSold("");
+		// 		setLink("");
+		// 		setSellPrice("");
+		// 	}}>
+		// 	Submit
+		// </Button>{" "}
 	);
 }
 

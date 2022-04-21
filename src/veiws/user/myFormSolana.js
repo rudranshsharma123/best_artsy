@@ -1,5 +1,4 @@
 import React from "react";
-import { Form, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
@@ -58,100 +57,63 @@ function MyformSolana(props) {
 	};
 
 	return (
-		<Form>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Link To Your NFT's Image</Form.Label>
-				<Form.Control
-					type="email"
-					placeholder="Enter link to you NFT's image"
-					value={link}
-					onChange={(e) => {
-						onChangeTextFeild(e, "link");
-						console.log(link);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should have a link to your NFT's image.
-				</Form.Text>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Enter SymBol for your NFTs</Form.Label>
-				<Form.Control
-					type="number"
-					placeholder="Enter Symbol for your NFTs"
-					value={symbol}
-					onChange={(e) => {
-						onChangeTextFeild(e, "symbol");
-						console.log(symbol);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should set a Symbol for your NFTs
-				</Form.Text>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Enter The name of you Nfts</Form.Label>
-				<Form.Control
-					type="email"
-					placeholder="Enter name of your NFT's"
-					value={name}
-					onChange={(e) => {
-						onChangeTextFeild(e, "name");
-						console.log(name);
-					}}
-				/>
-				<Form.Text className="text-muted">
-					You should provide Name for the NFT's metadata
-				</Form.Text>
-			</Form.Group>
-			<Form.Group className="mb-3" controlId="formBasicEmail">
-				<Form.Label>Enter the Desc for your NFTs</Form.Label>
-				<Form.Control
-					type="text"
-					placeholder="Enter the Description of your NFTs"
-					value={desc}
-					onChange={(e) => {
-						onChangeTextFeild(e, "desc");
-						console.log(desc);
-					}}
-				/>
-				<Form.Text className="text-muted">You should set the desc</Form.Text>
-			</Form.Group>
-			<Button
-				variant="primary"
-				type="submit"
-				style={{ marginRight: "10px" }}
-				onClick={(e) => {
-					e.preventDefault();
-					dispatch(connectToSolana());
-				}}>
-				Connect to Solana
-			</Button>
-			<Button
-				variant="primary"
-				
-				onClick={async (e) => {
-					e.preventDefault();
-					await makeNftSolana();
+		<div>
+			<input
+				type="text"
+				placeholder="Enter the link for your NFT"
+				value={link}
+				onChange={(e) => {
+					onChangeTextFeild(e, "link");
+				}}
+			/>
+			<input
+				type="text"
+				placeholder="Enter the symbol for your NFT"
+				value={symbol}
+				onChange={(e) => {
+					onChangeTextFeild(e, "symbol");
+				}}
+			/>
 
-					toastySuccess("NFT Minted, check your wallet");
-				}}>
-				Submit
-			</Button>{" "}
-			<iframe
-				title="desoidentity"
-				id="identity"
-				frameBorder="0"
-				src="https://identity.deso.org/embed?v=2"
-				style={{
-					height: "100vh",
-					width: "100vw",
-					display: "none",
-					position: "fixed",
-					zIndex: 1000,
-					left: 0,
-					top: 0,
-				}}></iframe>
+			<input
+				type="text"
+				placeholder="Enter the name for your NFT"
+				value={name}
+				onChange={(e) => {
+					onChangeTextFeild(e, "name");
+				}}
+			/>
+			<input
+				type="text"
+				placeholder="Enter the description for your NFT"
+				value={name}
+				onChange={(e) => {
+					onChangeTextFeild(e, "desc");
+				}}
+			/>
+			<div>
+				<button
+					className="cta-button mint-button"
+					onClick={(e) => {
+						e.preventDefault();
+						dispatch(connectToSolana());
+					}}>
+					Connect to Solana
+				</button>
+				<button
+					className="cta-button mint-button"
+					type="submit"
+					style={{ marginRight: "10px" }}
+					onClick={async (e) => {
+						e.preventDefault();
+						await makeNftSolana();
+
+						toastySuccess("NFT Minted, check your wallet");
+					}}>
+					Submit NFT on Solana
+				</button>
+			</div>
+
 			<ToastContainer
 				position="top-right"
 				autoClose={5000}
@@ -163,7 +125,7 @@ function MyformSolana(props) {
 				draggable
 				pauseOnHover
 			/>
-		</Form>
+		</div>
 	);
 }
 

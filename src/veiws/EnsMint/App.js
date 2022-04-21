@@ -500,10 +500,6 @@ const App = () => {
 				<Navbar></Navbar>
 				<div className="header-container">
 					<header>
-						<div className="left">
-							<p className="title">Coder Name Service</p>
-							<p className="subtitle">Your immortal API on the blockchain!</p>
-						</div>
 						<div className="right">
 							<img
 								alt="Network logo"

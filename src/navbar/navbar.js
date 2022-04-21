@@ -3,7 +3,6 @@ import "./styles.css";
 import Deso from "deso-protocol";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
 import { toastySuccess } from "../consts/toasts";
 import { ToastContainer } from "react-toastify";
 
@@ -57,30 +56,34 @@ function Navbar({ isHome }) {
 			<div id="nav-links">Artsy</div>
 
 			<div>
-				<Button
+				<button
+					className="cta-button mint-button"
 					variant="none"
 					style={{ color: "white", fontSize: "30px" }}
 					onClick={handlePageChange}>
 					{isHome ? "Home" : "Profile"}
-				</Button>
-				<Button
+				</button>
+				<button
+					className="cta-button mint-button"
 					variant="none"
 					style={{ color: "white", fontSize: "30px" }}
 					onClick={handleLogout}>
 					ArtGen
-				</Button>
-				<Button
+				</button>
+				<button
+					className="cta-button mint-button"
 					variant="none"
 					style={{ color: "white", fontSize: "30px" }}
 					onClick={handleChange}>
 					Discover
-				</Button>
-				<Button
+				</button>
+				<button
+					className="cta-button mint-button"
 					variant="none"
 					style={{ color: "white", fontSize: "30px" }}
 					onClick={handleEns}>
 					ENS
-				</Button>
+				</button>
 			</div>
 
 			<ToastContainer

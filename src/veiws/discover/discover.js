@@ -5,7 +5,6 @@ import Navbar from "../../navbar/navbar";
 import { connectToSolana } from "../../redux/Solana/actions";
 import { toastySuccess, toastyFailure } from "../../consts/toasts";
 import "./styles.css";
-import { Button } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import TPin from "./testingpin";
 import axios from "axios";
@@ -151,12 +150,12 @@ function Discover(props) {
 		<>
 			<Navbar />
 			<div>
-				<Button
+				<button
 					id="button"
 					onClick={changeChains}
 					style={{ marginLeft: "100px" }}>
 					Change Chains {isSol ? "Switch To DeSo" : "Switch to Solana"}
-				</Button>
+				</button>
 			</div>
 
 			<div className="mainContainer">

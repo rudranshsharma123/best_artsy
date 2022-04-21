@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { Buffer } from "buffer";
 import { toastySuccess } from "../../consts/toasts";
@@ -73,79 +72,43 @@ function DifForm(props) {
 
 	return (
 		<div className="main-container">
-			<Form className="form">
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label>Your Email Address</Form.Label>
-					<Form.Control
-						type="email"
-						placeholder="Enter Your Email to get your art "
-						value={email}
-						onChange={(e) => {
-							onChangeTextFeild(e, "email");
-							console.log(email);
-						}}
-					/>
-					<Form.Text className="text-muted">
-						You should have a link to your NFT's image.
-					</Form.Text>
-				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label>
-						Enter the prompt from whihc you want to gen art from
-					</Form.Label>
-					<Form.Control
-						type="email"
-						placeholder="Enter the prompt from which you want to gen art from"
-						value={prompt}
-						onChange={(e) => {
-							onChangeTextFeild(e, "prompt");
-							console.log(prompt);
-						}}
-					/>
-					<Form.Text className="text-muted">
-						You can provide a text input of what image you want
-					</Form.Text>
-				</Form.Group>
-				<Form.Group className="mb-3" controlId="formBasicEmail">
-					<Form.Label>Please enter the art you want to see</Form.Label>
-					<Form.Control
-						type="email"
-						placeholder="Please enter the kind of art you want to see"
-						value={style}
-						onChange={(e) => {
-							onChangeTextFeild(e, "style");
-							console.log(style);
-						}}
-					/>
-					<Form.Text className="text-muted">
-						You can only choose from Painting, Pixel Art
-					</Form.Text>
-				</Form.Group>
-				<Button variant="primary" type="submit">
-					Submit
-				</Button>
-				<Button
-					variant="primary"
-					onClick={async (e) => {
-						e.preventDefault();
-						makeArt();
-					}}>
-					Submit
-				</Button>{" "}
-				<iframe
-					title="desoidentity"
-					id="identity"
-					frameBorder="0"
-					src="https://identity.deso.org/embed?v=2"
-					style={{
-						height: "100vh",
-						width: "100vw",
-						display: "none",
-						position: "fixed",
-						zIndex: 1000,
-						left: 0,
-						top: 0,
-					}}></iframe>
+			<div className="form-container">
+				<input
+					type="text"
+					placeholder="Enter Your Email to get your art"
+					value={email}
+					onChange={(e) => {
+						onChangeTextFeild(e, "email");
+					}}
+				/>
+				<input
+					type="text"
+					placeholder="Enter the prompt for the art"
+					value={prompt}
+					onChange={(e) => {
+						onChangeTextFeild(e, "prompt");
+					}}
+				/>
+
+				<input
+					type="text"
+					placeholder="Enter what kind of art you want to see"
+					value={style}
+					onChange={(e) => {
+						onChangeTextFeild(e, "style");
+					}}
+				/>
+
+				<div>
+					<button
+						className="cta-button mint-button"
+						onClick={async (e) => {
+							e.preventDefault();
+							makeArt();
+						}}>
+						Make Art!
+					</button>
+				</div>
 				<ToastContainer
 					position="top-right"
 					autoClose={5000}
@@ -157,8 +120,8 @@ function DifForm(props) {
 					draggable
 					pauseOnHover
 				/>
-			</Form>
-			<img src={image} style={{ width: "100%" }} className="img" />
+				<img src={image} style={{ width: "100%" }} className="img" />
+			</div>
 		</div>
 	);
 }

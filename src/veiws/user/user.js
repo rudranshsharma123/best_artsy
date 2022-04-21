@@ -2,7 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Navbar from "../../navbar/navbar";
-import MyCarousel from "./myCarousel";
 import "./styles.css";
 import Myform from "./myform";
 import MyformSolana from "./myFormSolana";
@@ -88,17 +87,6 @@ function User(props) {
 				<div className="form-container">
 					<p className="text">Upload more Nfts</p>
 					<MyformSolana />
-				</div>
-			</div>
-
-			<div className="carousel-container">
-				<div className="user-container">
-					<p className="text">Your NFTs</p>
-					<MyCarousel images={onlyImages} />
-				</div>
-				<div className="user-container">
-					<p className="text">Your Generated Art</p>
-					{loaded ? <MyCarousel images={onlyImages} /> : <p>Loading...</p>}
 				</div>
 			</div>
 		</div>
