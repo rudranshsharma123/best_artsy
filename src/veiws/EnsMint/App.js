@@ -9,7 +9,7 @@ import { networks } from "../../utils/networks";
 import Navbar from "../../navbar/navbar";
 // Constants
 
-const TWITTER_HANDLE = "_buildspace";
+const TWITTER_HANDLE = "rudranshsharma9";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const tld = ".coder";
